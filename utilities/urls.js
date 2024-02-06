@@ -1,6 +1,6 @@
 // NEXT_PUBLIC_API_HOST = "https://marginpoint.pythonanywhere.com";
-// const DEFAULT_HOST = process.env.NEXT_PUBLIC_API_HOST;
-const DEFAULT_HOST = "https://marginpoint.pythonanywhere.com";
+const DEFAULT_HOST = process.env.NEXT_PUBLIC_API_HOST;
+// const DEFAULT_HOST = "https://marginpoint.pythonanywhere.com";
 const API_BASE_URL = DEFAULT_HOST;
 
 // Product url templates
