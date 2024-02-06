@@ -7,6 +7,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  user-select: none;
   font-family: -apple-system,'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
@@ -20,6 +21,7 @@ a {
   box-sizing: border-box;
   font-family: 'Nunito', sans-serif;
 }
+
 /* Use the below code to add dark mode */
 /* 
 @media (prefers-color-scheme: dark) {

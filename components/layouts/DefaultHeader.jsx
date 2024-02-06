@@ -4,23 +4,23 @@ import ContentWrapper from '@/components/layouts/ContentWrapper'
 
 const DefaultHeader = () => {
     return (
-        <header className='w-full p-3 shadow-md'>
+        <header className='w-full p-3 shadow-md '>
             <ContentWrapper>
                 <div className='flex justify-between'>
                     {/* Title */}
-                    <h3> Starter Project </h3>
+                    <h3> Margin Point </h3>
 
                     {/* Navbar */}
                     <div className='flex items-center'>
                         <ul className='flex justify-between items-center gap-5 text-xs'>
                             <li>
-                                <Link href={'#home'}>
+                                <Link href={'/'}>
                                     Home
                                 </Link>
                             </li>
                             <li>
-                                <Link href={'#features'}>
-                                    Features
+                                <Link href={'/product'}>
+                                    Products
                                 </Link>
                             </li>
                         </ul>

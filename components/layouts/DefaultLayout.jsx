@@ -1,17 +1,24 @@
-import React from 'react'
-import DefaultFooter from '@/components/layouts/DefaultFooter'
-import DefaultHeader from '@/components/layouts/DefaultHeader'
+import React from "react";
+import DefaultFooter from "@/components/layouts/DefaultFooter";
+import DefaultHeader from "@/components/layouts/DefaultHeader";
 
-const DefaultLayout = ({ children, className }) => {
-    return (
-        <>
-            <DefaultHeader />
-            <div className={`min-h-[calc(100vh-130px)] ${className}`}>
-                {children}
-            </div>
-            <DefaultFooter />
-        </>
-    )
-}
+const DefaultLayout = ({
+  children,
+  className,
+  header = true,
+  footer = true,
+}) => {
+  return (
+    <>
+      {header && <DefaultHeader />}
+      <div
+        className={`min-h-[calc(100vh-89px)] bg-slate-400 flex flex-col items-center justify-center ${className}`}
+      >
+        {children}
+      </div>
+      {footer ?? <DefaultFooter />}
+    </>
+  );
+};
 
-export default DefaultLayout
+export default DefaultLayout;
