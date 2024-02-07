@@ -35,13 +35,14 @@ const Product = () => {
           Loading...
         </div>
       ) : (
-        <div className="w-[90%] lg:w-[40%] md:w-[60%]">
-          <h2 className="title flex justify-center text-heading-4">PRODUCTS</h2>
+        <div className="w-[90%] lg:w-[40%] md:w-[60%] mt-16">
           <List
             items={products}
             handleListItemClick={handleClick}
             clickable={true}
             showImage={true}
+            title={"ALL PRODUCTS"}
+            className={""}
           />
         </div>
       )}

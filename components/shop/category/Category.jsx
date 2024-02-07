@@ -37,11 +37,12 @@ const Category = () => {
           Loading...
         </div>
       ) : categories && Array.isArray(categories) && categories.length > 0 ? (
-        <div className="w-[90%] lg:w-[40%] md:w-[60%]">
-          <h2 className="title flex justify-center text-heading-4">
-            CATEGORIES
-          </h2>
-          <List items={categories} handleListItemClick={handleClick} />
+        <div className="w-[90%] lg:w-[40%] md:w-[60%] mt-16">
+          <List
+            items={categories}
+            handleListItemClick={handleClick}
+            title={"CATEGORIES"}
+          />
         </div>
       ) : (
         <div>

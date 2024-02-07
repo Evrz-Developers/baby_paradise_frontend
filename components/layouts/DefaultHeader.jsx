@@ -1,16 +1,38 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ContentWrapper from "@/components/layouts/ContentWrapper";
 
 const DefaultHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
+  const toggleMenu = (event) => {
+    event.stopPropagation();
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      const dropdown = document.getElementById("dropdown"); // Replace "dropdown" with the actual ID of your dropdown container
+      if (dropdown && !dropdown.contains(event.target)) {
+        closeMenu();
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("click", handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, [isMenuOpen]);
+
   return (
-    <header className="w-full p-3 shadow-md ">
+    <header className="w-full p-3 shadow-md fixed top-0 bg-white z-10">
       <ContentWrapper>
         <div className="flex justify-between">
           {/* Title */}
@@ -37,7 +59,10 @@ const DefaultHeader = () => {
 
             {/* Dropdown Menu */}
             {isMenuOpen && (
-              <div className="absolute top-full  mt-2 -right-3 bg-white border border-gray-300 rounded-md shadow-lg">
+              <div
+                id="dropdown"
+                className="absolute top-full  mt-2 -right-3 bg-white border border-gray-300 rounded-md shadow-lg"
+              >
                 <ul className="py-2 px-4">
                   <li>
                     <Link
@@ -45,6 +70,9 @@ const DefaultHeader = () => {
                     >
                       Admin
                     </Link>
+                  </li>
+                  <li>
+                    <Link href={"/category"}>Categories</Link>
                   </li>
                   <li>
                     <Link href={"/product"}>Products</Link>
@@ -60,6 +88,9 @@ const DefaultHeader = () => {
                 <Link href={"https://marginpoint.pythonanywhere.com/admin/"}>
                   Admin
                 </Link>
+              </li>
+              <li>
+                <Link href={"/category"}>Categories</Link>
               </li>
               <li>
                 <Link href={"/product"}>Products</Link>

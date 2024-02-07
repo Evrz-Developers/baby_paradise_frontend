@@ -11,7 +11,7 @@ const ProductDetailModal = ({ product }) => {
     return formatter.format(value);
   };
   return (
-    <div className="w-[80%] lg:w-[30%] md:w-[50%] bg-gray-100 p-6 pt-0 rounded-lg shadow-md">
+    <div className="w-[80%] lg:w-[30%] md:w-[50%] bg-gray-100 p-6 pt-0 rounded-lg shadow-md lg:mt-12">
       <h2 className="title flex justify-center text-heading-4 py-4">
         {product.name}
       </h2>

@@ -11,7 +11,6 @@ const ProductDetails = ({ productId }) => {
       try {
         // Fetch product details
         const response = await PRODUCT_API.getProduct(productId);
-        console.log("response", response?.data);
         setProduct(response?.data);
       } catch (error) {
         console.error("Error fetching categories:", error);
