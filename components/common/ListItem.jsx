@@ -6,7 +6,7 @@ const ListItem = ({ name, image, showImage = false, className, onClick }) => {
       className={`flex justify-center items-center text-slate-950 text-[2rem] bg-slate-100 m-2 p-2 rounded-md cursor-pointer text-body-lg leading-10 ${className}`}
       onClick={onClick}
     >
-      <div className="flex rounded-lg mx-2">
+      <div className="flex rounded-lg">
         {showImage && (
           <Image
             src={image ? image : "/images/shop/noImageplacholder.jpg"}
@@ -14,6 +14,7 @@ const ListItem = ({ name, image, showImage = false, className, onClick }) => {
             width={50}
             height={50}
             loader={CustomimageLoader}
+            unoptimized
             className="rounded-lg"
           />
         )}

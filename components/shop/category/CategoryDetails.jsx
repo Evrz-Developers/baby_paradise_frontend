@@ -34,8 +34,7 @@ const CategoryDetails = ({ categoryId }) => {
           Loading...
         </div>
       ) : products && Array.isArray(products) && products.length > 0 ? (
-        <div className="w-[90%] lg:w-[40%] md:w-[60%]">
-          <h2 className="title flex justify-center text-heading-4">PRODUCTS</h2>
+        <div className="w-[90%] lg:w-[40%] md:w-[60%] mt-8 md:mt-16 lg:mt-16">
           <List
             items={products}
             handleListItemClick={handleClick}
