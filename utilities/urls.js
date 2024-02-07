@@ -7,7 +7,7 @@ const API_BASE_URL = DEFAULT_HOST;
 const productReadManyUrl = (categoryId) =>
   `${API_BASE_URL}/api/v1/shop/product`;
 
-const productReadOneUrl = (productId) => `api/v1/shop/product/${productId}`;
+const productReadOneUrl = (productId) => `${API_BASE_URL}/api/v1/shop/product/${productId}`;
 
 // category url templates
 const categoryReadManyUrl = () => `${API_BASE_URL}/api/v1/shop/category/`;

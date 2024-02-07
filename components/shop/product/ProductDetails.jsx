@@ -1,25 +1,26 @@
 import PRODUCT_API from "@/utilities/shop/product.api";
 import React, { useEffect, useState } from "react";
-import ListItem from "@/components/common/ListItem";
+import ProductDetailModal from "./productDetailModal";
 
-const ProductDetails = ({ categoryId }) => {
-  const [products, setProducts] = useState();
+const ProductDetails = ({ productId }) => {
+  const [product, setProduct] = useState();
   const [loading, setLoading] = useState(true); // Added loading state
 
   useEffect(() => {
-    const fetchData = async (categoryId) => {
+    const fetchData = async (productId) => {
       try {
-        // Fetch category details(products)
-        const response = await PRODUCT_API.getProduct(categoryId);
-        setProducts(response?.data);
+        // Fetch product details
+        const response = await PRODUCT_API.getProduct(productId);
+        console.log("response", response?.data);
+        setProduct(response?.data);
       } catch (error) {
         console.error("Error fetching categories:", error);
       } finally {
         setLoading(false); // Set loading to false once data is fetched (success or error)
       }
     };
-    fetchData(categoryId);
-  }, [categoryId]);
+    fetchData(productId);
+  }, [productId]);
   return (
     <>
       {loading ? ( // Check loading state
@@ -27,24 +28,14 @@ const ProductDetails = ({ categoryId }) => {
           {/* Add your loader component or animation here */}
           Loading...
         </div>
-      ) : products && Array.isArray(products) && products.length > 0 ? (
+      ) : product &&
+        typeof product === "object" &&
+        Object.keys(product).length > 0 ? (
+        <ProductDetailModal product={product} />
+      ) : (
         <div>
-          <h2 className="title flex justify-center text-4xl pb-2">Products</h2>
-
-          {products?.map((product) => (
-            <ListItem
-              key={product.id}
-              name={product.name}
-              image={product.product_image}
-              showImage={true}
-              className={"justify-between p-3 pl-1"}
-            />
-          ))}
-        </div>
-      ) : products.length === 0 (
-        <div>
-          <h2 className="title flex justify-center text-4xl pb-2">
-            No Products to Show!
+          <h2 className="title flex justify-center text-heading-4 pb-2">
+            No details to show!
           </h2>
         </div>
       )}

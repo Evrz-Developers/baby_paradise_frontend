@@ -4,7 +4,7 @@ import CategoryDetails from "@/components/shop/category/CategoryDetails";
 const CategoryDetailsPage = ({ id }) => {
   return (
     <DefaultLayout>
-      <CategoryDetails categoryId={id} />;
+      <CategoryDetails categoryId={id} />
     </DefaultLayout>
   );
 };
