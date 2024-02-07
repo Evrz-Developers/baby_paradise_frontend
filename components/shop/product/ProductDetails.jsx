@@ -1,6 +1,6 @@
 import PRODUCT_API from "@/utilities/shop/product.api";
 import React, { useEffect, useState } from "react";
-import ProductDetailModal from "./productDetailModal";
+import ProductDetailModal from "@/components/shop/product/ProductDetailModal";
 
 const ProductDetails = ({ productId }) => {
   const [product, setProduct] = useState();
