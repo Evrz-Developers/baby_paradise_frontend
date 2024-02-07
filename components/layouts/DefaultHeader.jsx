@@ -1,34 +1,32 @@
-import Link from 'next/link'
-import React from 'react'
-import ContentWrapper from '@/components/layouts/ContentWrapper'
+import Link from "next/link";
+import React from "react";
+import ContentWrapper from "@/components/layouts/ContentWrapper";
 
 const DefaultHeader = () => {
-    return (
-        <header className='w-full p-3 shadow-md '>
-            <ContentWrapper>
-                <div className='flex justify-between'>
-                    {/* Title */}
-                    <h3> Margin Point </h3>
+  return (
+    <header className="w-full p-3 shadow-md ">
+      <ContentWrapper>
+        <div className="flex justify-between">
+          {/* Title */}
+          <Link href={"https://marginpoint.pythonanywhere.com/admin/"}>
+            Margin Point
+          </Link>
 
-                    {/* Navbar */}
-                    <div className='flex items-center'>
-                        <ul className='flex justify-between items-center gap-5 text-xs'>
-                            <li>
-                                <Link href={'/'}>
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href={'/product'}>
-                                    Products
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </ContentWrapper>
-        </header>
-    )
-}
+          {/* Navbar */}
+          <div className="flex items-center">
+            <ul className="flex justify-between items-center gap-5 text-xs">
+              <li>
+                <Link href={"/"}>Home</Link>
+              </li>
+              <li>
+                <Link href={"/product"}>Products</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ContentWrapper>
+    </header>
+  );
+};
 
-export default DefaultHeader
+export default DefaultHeader;
