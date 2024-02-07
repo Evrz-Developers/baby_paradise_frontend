@@ -5,7 +5,7 @@ import React from "react";
 const ProductPage = () => {
   return (
     <DefaultLayout header={true} footer={false}>
-      <Product />;
+      <Product />
     </DefaultLayout>
   );
 };

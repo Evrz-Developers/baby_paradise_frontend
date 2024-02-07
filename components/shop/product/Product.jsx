@@ -1,4 +1,3 @@
-// Import necessary modules
 import React, { useState, useEffect } from "react";
 import PRODUCT_API from "@/utilities/shop/product.api";
 import List from "../../common/List";
@@ -9,8 +8,8 @@ const Product = () => {
   const [loading, setLoading] = useState(true); // Added loading state
   const router = useRouter();
 
-  const handleClick = (categoryId) => {
-    router.push(`/${categoryId}`);
+  const handleClick = (productId) => {
+    router.push(`product/${productId}`);
   };
 
   // Fetch products
@@ -36,12 +35,13 @@ const Product = () => {
           Loading...
         </div>
       ) : (
-        <div className="w-[90%]">
-          <h2 className="title flex justify-center text-4xl">PRODUCTS</h2>
+        <div className="w-[90%] lg:w-[40%] md:w-[60%]">
+          <h2 className="title flex justify-center text-heading-4">PRODUCTS</h2>
           <List
             items={products}
             handleListItemClick={handleClick}
-            clickable={false}
+            clickable={true}
+            showImage={true}
           />
         </div>
       )}

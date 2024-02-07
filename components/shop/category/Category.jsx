@@ -37,13 +37,15 @@ const Category = () => {
           Loading...
         </div>
       ) : categories && Array.isArray(categories) && categories.length > 0 ? (
-        <div className="w-[90%]">
-          <h2 className="title flex justify-center text-4xl">CATEGORIES</h2>
+        <div className="w-[90%] lg:w-[40%] md:w-[60%]">
+          <h2 className="title flex justify-center text-heading-4">
+            CATEGORIES
+          </h2>
           <List items={categories} handleListItemClick={handleClick} />
         </div>
       ) : (
         <div>
-          <h2 className="title flex justify-center text-4xl pb-2">
+          <h2 className="title flex justify-center text-heading-4 pb-2">
             No categories to show!
           </h2>
         </div>
