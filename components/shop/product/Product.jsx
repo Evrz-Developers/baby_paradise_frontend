@@ -31,9 +31,8 @@ const Product = () => {
 
   return (
     <>
-      {loading ? ( // Check loading state
+      {loading ? (
         <div className="loader-container">
-          {/* Add your loader component or animation here */}
           Loading...
         </div>
       ) : (
@@ -43,12 +42,11 @@ const Product = () => {
             handleListItemClick={handleClick}
             clickable={true}
             showImage={true}
-            // title={"PRODUCTS"}
             className={""} />
           {/* <List
-            items={products}
             handleListItemClick={handleClick}
             clickable={true}
+            items={products}
             showImage={true}
             title={"PRODUCTS"}
             className={""}

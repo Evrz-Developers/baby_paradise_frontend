@@ -12,7 +12,6 @@ const DefaultLayout = ({
     <>
       {header && <DefaultHeader />}
       <div
-      // min-h-[calc(100vh-1px)]
         className={`bg-gray-100 flex flex-col items-center justify-center ${className}`}
       >
         {children}

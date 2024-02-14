@@ -23,7 +23,6 @@ const Dashboard = () => {
       try {
         const response = await CATEGORY_API.getAllCategories();
         setCategories(response?.data);
-        console.log('response?.data', response?.data)
       } catch (error) {
         console.error("Error fetching categories:", error);
       } finally {
@@ -35,9 +34,8 @@ const Dashboard = () => {
 
   return (
     <>
-      {loading ? ( // Check loading state
+      {loading ? (
         <div className="loader-container">
-          {/* Add your loader component or animation here */}
           Loading...
         </div>
       ) : categories && Array.isArray(categories) && categories.length > 0 ? (
@@ -48,11 +46,6 @@ const Dashboard = () => {
               <Product />
             </div>
           </div>
-          {/* <List
-            items={categories}
-            handleListItemClick={handleClick}
-            title={"CATEGORIES"}
-          /> */}
         </>
       ) : (
         <div>
