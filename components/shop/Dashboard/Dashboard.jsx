@@ -3,9 +3,11 @@ import React, { useState, useEffect } from "react";
 import CATEGORY_API from "../../../utilities/shop/category.api";
 import List from "../../common/List";
 import { useRouter } from "next/router";
-import CategoryNavbar from "./CategoryNavbar";
+import Product from "../product/Product";
+import CategoryNavbar from "../category/CategoryNavbar";
+import DefaultLayout from "@/components/layouts/DefaultLayout";
 
-const Category = () => {
+const Dashboard = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true); // Added loading state
 
@@ -39,15 +41,19 @@ const Category = () => {
           Loading...
         </div>
       ) : categories && Array.isArray(categories) && categories.length > 0 ? (
-        // <div className="w-[90%] lg:w-[40%] md:w-[60%] mt-16">
-        <div className="w-full xxs:mt-14 md:mt-12">
-           <CategoryNavbar categories={categories} />
+        <>
+          <div className="h-full w-full xxs:mt-11 md:mt-9 fixed top-0 ">
+            <CategoryNavbar categories={categories} />
+            <div className={"w-full h-full "}>
+              <Product />
+            </div>
+          </div>
           {/* <List
             items={categories}
             handleListItemClick={handleClick}
             title={"CATEGORIES"}
           /> */}
-        </div>
+        </>
       ) : (
         <div>
           <h2 className="title flex justify-center text-heading-4 pb-2">
@@ -59,4 +65,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default Dashboard;

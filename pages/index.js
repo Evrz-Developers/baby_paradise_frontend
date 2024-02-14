@@ -1,24 +1,16 @@
 import React from "react";
 import DefaultLayout from "@/components/layouts/DefaultLayout";
-import Category from "@/components/shop/category/Category";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import Dashboard from "@/components/shop/Dashboard/Dashboard";
 
 const Home = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    // Redirect to /category when the component mounts
-    router.push("/category");
-  });
-
   return (
-    <DefaultLayout
+    <DefaultLayout header={true} footer={false}
       className={
-        "min-h-[calc(100vh-89px)] bg-slate-400 flex flex-col items-center justify-center"
+        // min-h-[calc(100vh-89px)]
+        "min-h-[calc(100vh-1px)]  flex flex-col items-center justify-center h-full w-full"
       }
     >
-      <Category />
+      <Dashboard />
     </DefaultLayout>
   );
 };
