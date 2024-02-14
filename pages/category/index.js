@@ -3,7 +3,8 @@ import Category from "@/components/shop/category/Category";
 
 const CategoryPage = () => {
   return (
-    <DefaultLayout header={true} footer={false}>
+    // min-h-[calc(100vh-1px)]
+    <DefaultLayout header={true} footer={false} className={"w-full h-full"}>
       <Category />
     </DefaultLayout>
   );

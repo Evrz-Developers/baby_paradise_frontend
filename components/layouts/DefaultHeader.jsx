@@ -32,7 +32,7 @@ const DefaultHeader = () => {
   }, [isMenuOpen]);
 
   return (
-    <header className="w-full p-3 shadow-md fixed top-0 bg-white z-10">
+    <header className="w-full p-1 pt-2 shadow-md fixed top-0 bg-white z-10">
       <ContentWrapper>
         <div className="flex justify-between">
           {/* Title */}
@@ -61,7 +61,7 @@ const DefaultHeader = () => {
             {isMenuOpen && (
               <div
                 id="dropdown"
-                className="absolute top-full  mt-2 -right-3 bg-white border border-gray-300 rounded-md shadow-lg"
+                className="absolute top-full  mt-2 right-0 bg-white border border-gray-300 rounded-md shadow-lg"
               >
                 <ul className="py-2 px-4">
                   <li>

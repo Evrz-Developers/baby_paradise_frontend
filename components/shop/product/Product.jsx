@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PRODUCT_API from "@/utilities/shop/product.api";
 import List from "../../common/List";
 import { useRouter } from "next/router";
+import ProductGrid from "./ProductGrid";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -18,6 +19,7 @@ const Product = () => {
       try {
         const response = await PRODUCT_API.getAllProducts();
         setProducts(response?.data);
+        console.log('response?.data', response?.data)
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -35,15 +37,22 @@ const Product = () => {
           Loading...
         </div>
       ) : (
-        <div className="w-[90%] lg:w-[40%] md:w-[60%] mt-16">
-          <List
+        <div className="">
+          <ProductGrid
             items={products}
             handleListItemClick={handleClick}
             clickable={true}
             showImage={true}
-            title={"ALL PRODUCTS"}
+            // title={"PRODUCTS"}
+            className={""} />
+          {/* <List
+            items={products}
+            handleListItemClick={handleClick}
+            clickable={true}
+            showImage={true}
+            title={"PRODUCTS"}
             className={""}
-          />
+          /> */}
         </div>
       )}
     </>
