@@ -36,7 +36,7 @@ const Product = () => {
           Loading...
         </div>
       ) : (
-        <div className="">
+        <div >
           <ProductGrid
             items={products}
             handleListItemClick={handleClick}

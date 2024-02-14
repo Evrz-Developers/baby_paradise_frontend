@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import ContentWrapper from "@/components/layouts/ContentWrapper";
 
 const DefaultHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
 
   const toggleMenu = (event) => {
     event.stopPropagation();
@@ -32,7 +34,7 @@ const DefaultHeader = () => {
   }, [isMenuOpen]);
 
   return (
-    <header className="w-full p-1 pt-2 shadow-md fixed top-0 bg-white z-10">
+    <header className="w-full p-1 px-3 pt-2 shadow-md fixed top-0 bg-white z-10">
       <ContentWrapper>
         <div className="flex justify-between">
           {/* Title */}
@@ -71,11 +73,11 @@ const DefaultHeader = () => {
                       Admin
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href={"/category"}>Categories</Link>
-                  </li>
+                  </li> */}
                   <li>
-                    <Link href={"/product"}>Products</Link>
+                    <Link href={"/product"} className={router.pathname === "/product" ? "font-bold" : ""}>Products</Link>
                   </li>
                 </ul>
               </div>
@@ -89,11 +91,11 @@ const DefaultHeader = () => {
                   Admin
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href={"/category"}>Categories</Link>
-              </li>
+              </li> */}
               <li>
-                <Link href={"/product"}>Products</Link>
+                <Link href={"/product"} className={router.pathname === "/product" ? "font-bold" : ""}>Products</Link>
               </li>
             </ul>
           </div>

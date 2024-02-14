@@ -5,7 +5,6 @@ import List from "../../common/List";
 import { useRouter } from "next/router";
 import Product from "../product/Product";
 import CategoryNavbar from "../category/CategoryNavbar";
-import DefaultLayout from "@/components/layouts/DefaultLayout";
 
 const Dashboard = () => {
   const [categories, setCategories] = useState([]);
