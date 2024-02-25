@@ -2,9 +2,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import ContentWrapper from "@/components/layouts/ContentWrapper";
+import DOCUMENT_API from "@/utilities/shop/document.api";
 
 const DefaultHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [documentUrl, setDocumentUrl] = useState();
   const router = useRouter();
 
   const toggleMenu = (event) => {
@@ -15,6 +17,19 @@ const DefaultHeader = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  // fetching the app url
+  useEffect(() => {
+    const fetchData = async (name) => {
+      try {
+        const response = await DOCUMENT_API.getDocument(name);
+        setDocumentUrl(response?.data?.file);
+      } catch (error) {
+        console.error("Error fetching Document details:", error);
+      }
+    };
+    fetchData("app");
+  }, []);
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -79,6 +94,9 @@ const DefaultHeader = () => {
                   <li>
                     <Link href={"/product"} className={router.pathname === "/product" ? "font-bold" : ""}>Products</Link>
                   </li>
+                  <li>
+                    <Link href={`${documentUrl}`}>Get App</Link>
+                  </li>
                 </ul>
               </div>
             )}
@@ -96,6 +114,9 @@ const DefaultHeader = () => {
               </li> */}
               <li>
                 <Link href={"/product"} className={router.pathname === "/product" ? "font-bold" : ""}>Products</Link>
+              </li>
+              <li>
+                <Link href={`${documentUrl}`}>Get App</Link>
               </li>
             </ul>
           </div>

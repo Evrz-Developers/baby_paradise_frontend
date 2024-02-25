@@ -17,6 +17,9 @@ const categoryReadOneUrl = (categoryId) =>
 
 const categoryCreateUrl = () => `${API_BASE_URL}/api/v1/shop/category`;
 
+// document url templates
+const documentDownloadUrl = (documentName) => `${API_BASE_URL}/api/v1/shop/document/download/${documentName}`;
+
 const CATEGORY = {
   READ_MANY: categoryReadManyUrl,
   CREATE: categoryCreateUrl,
@@ -31,9 +34,14 @@ const PRODUCT = {
   READ_ONE: productReadOneUrl,
 };
 
+const DOCUMENT = {
+  DOWNLOAD: documentDownloadUrl,
+};
+
 const URLS = {
   CATEGORY,
   PRODUCT,
+  DOCUMENT,
 };
 
 export default URLS;
