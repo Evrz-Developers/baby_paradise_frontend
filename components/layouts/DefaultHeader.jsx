@@ -49,7 +49,7 @@ const DefaultHeader = () => {
   }, [isMenuOpen]);
 
   return (
-    <header className="w-full p-1 px-3 pt-2 shadow-md fixed top-0 bg-white z-10">
+    <header className="w-full px-4 py-4 shadow-md fixed top-0 bg-white z-10">
       <ContentWrapper>
         <div className="flex justify-between">
           {/* Title */}
@@ -102,7 +102,7 @@ const DefaultHeader = () => {
             )}
           </div>
           {/* Navbar */}
-          <div className={`lg:flex items-center hidden`}>
+          <div className={`lg:flex pr-3 items-center hidden`}>
             <ul className="flex gap-5 text-xs">
               <li>
                 <Link href={"https://marginpoint.pythonanywhere.com/admin/"}>
