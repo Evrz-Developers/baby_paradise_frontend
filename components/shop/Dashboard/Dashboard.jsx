@@ -39,7 +39,7 @@ const Dashboard = () => {
         </div>
       ) : categories && Array.isArray(categories) && categories.length > 0 ? (
         <>
-          <div className="h-full w-full xxs:mt-11 md:mt-9 fixed top-0 ">
+          <div className="h-full w-full xxs:mt-16 md:mt-14 fixed top-0">
             <CategoryNavbar categories={categories} />
             <div className={"w-full h-full "}>
               <Product />
