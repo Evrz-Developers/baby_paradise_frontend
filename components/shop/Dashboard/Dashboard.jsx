@@ -49,7 +49,7 @@ const Dashboard = () => {
       ) : (
         <div>
           <h2 className="title flex justify-center text-heading-4 pb-2">
-            No categories to show!
+            Nothing to show!
           </h2>
         </div>
       )}
