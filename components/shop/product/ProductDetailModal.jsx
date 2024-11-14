@@ -43,7 +43,7 @@ const ProductDetailModal = ({ product }) => {
           {product.name}
         </h2>
         {product.description &&
-          <p className="text-lg text-gray-800">
+          <p className="text-lg text-gray-800 break-words pb-1">
             {product.description}
           </p>}
         <h2 className="text-label-info text-[20px] font-semibold mb-1">

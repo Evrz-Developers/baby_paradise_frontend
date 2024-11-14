@@ -3,11 +3,11 @@ import Link from 'next/link';
 
 const CategoryNavbar = ({ categories }) => {
     return (
-        <nav className="flex bg-gray-800s bg-slate-400 px-3 py-2 md:text-base xxs:text-xs">
-            <div className="flex justify-between items-center">
-                <div className="flex space-x-4">
+        <nav className="flex bg-white px-4 py-2 md:text-base xxs:text-xs border-2 border-gray-300 overflow-hidden">
+            <div className="flex justify-between items-center overflow-x-auto ">
+                <div className="flex space-x-4 ">
                     {categories.map((category) => (
-                        <Link key={category.id} href={`/category/${category.id}`} className="text-white hover:text-gray-300 transition duration-300">
+                        <Link key={category.id} href={`/category/${category.id}`} className="text-gray-700 hover:text-gray-950 transition duration-300 whitespace-nowrap">
                             {category.name}
                         </Link>
                     ))}

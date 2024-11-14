@@ -12,7 +12,7 @@ const DefaultLayout = ({
     <>
       {header && <DefaultHeader />}
       <div
-        className={`bg-white flex flex-col items-center justify-center ${className}`}
+        className={`bg-white flex flex-col items-center justify-center mt-4 ${className}`}
       >
         {children}
       </div>
