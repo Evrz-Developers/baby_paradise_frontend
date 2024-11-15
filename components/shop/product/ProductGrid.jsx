@@ -23,9 +23,9 @@ const ProductGrid = ({ items, handleListItemClick, title, className }) => {
                                 className="rounded-[4px]"
                             />
                         </div>
-                        <div className="flex flex-col items-center mt-2 mb-1 ">
-                            <p className="text-lg ">{product.name}</p>
-                            <p className="text-lg font-semibold">{product.retail_price}</p>
+                        <div className="flex flex-col items-center xxs:items-start mt-2 mb-1 ">
+                            <p className="text-lg font-medium">{product.name}</p>
+                            <p className="text-xl font-medium"><span className="text-base" style={{ verticalAlign: 'top' }}>₹</span>{product.retail_price}</p>
                         </div>
                     </div>
                 ))}
