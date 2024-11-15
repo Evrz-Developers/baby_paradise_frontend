@@ -41,26 +41,18 @@ const ProductDetailModal = ({ product }) => {
         </div>
       </div>
       <div className="xxs:h-3/5 md:h-full flex-grow lg:w-3/5 px-4">
-        <h2 className="title flex justify-normal text-heading-3 py-4">
-          {product.name}
+        <h2 className="title flex justify-normal text-heading-4 font-semibold py-2">
+          {product.name} <span className="text-sm">[{product.item_code}]</span>
         </h2>
+        <p className="text-lg font-medium line-through"><span className="text-sm" style={{ verticalAlign: 'top' }}>₹</span>{product?.mrp}</p>
+        <p className="text-2xl font-medium"><span className="text-base" style={{ verticalAlign: 'top' }}>₹</span>{product?.retail_price}</p>
         {product.description &&
-          <p className="text-lg text-gray-800 break-words pb-1">
+          <><h3 className="text-lg font-medium py-1">Product Details</h3><p className="text-lg text-gray-800 break-words py-1">
             {product.description}
-          </p>}
-        <h2 className="text-label-info text-[20px] font-semibold mb-1">
-          Item code: {product.item_code}
-        </h2>
-        <p className="text-base text-gray-600 mb-1">
+          </p></>}
+        {/* <p className="text-base text-gray-600 mb-1">
           Category: {product?.category?.name}
-        </p>
-        <div className="text-base text-gray-700">
-          MRP: {formatCurrency(product.mrp)}
-        </div>
-        <div className="text-base text-emerald-700 my-2">
-          Sale Price: {formatCurrency(product?.retail_price)}
-        </div>
-
+        </p> */}
         <WhatsAppButton product={product} />
       </div>
     </div >
