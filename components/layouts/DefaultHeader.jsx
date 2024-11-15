@@ -8,6 +8,7 @@ const DefaultHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [documentUrl, setDocumentUrl] = useState();
   const router = useRouter();
+  const [tapCount, setTapCount] = useState(0);
 
   const toggleMenu = (event) => {
     event.stopPropagation();
@@ -16,6 +17,10 @@ const DefaultHeader = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleTap = () => {
+    setTapCount(prevCount => prevCount + 1);
   };
 
   // fetching the app url
@@ -48,13 +53,22 @@ const DefaultHeader = () => {
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    if (tapCount >= 5) {
+      // Redirect to the admin page
+      window.location.href = "https://marginpoint.pythonanywhere.com/admin/";
+    }
+  }, [tapCount]);
+
   return (
     <header className="w-full px-4 py-4 shadow-md fixed top-0 bg-white z-10">
       <ContentWrapper>
         <div className="flex justify-between">
           {/* Title */}
           <Link href="/">Margin Point</Link>
-
+          <div onClick={handleTap} className="cursor-pointer text-center ml-36 xxs:mr-20 ">
+            ⠀⠀⠀⠀
+          </div>
           {/* Hamburger Icon for Mobile */}
           <div className="lg:hidden relative">
             <button onClick={toggleMenu}>
@@ -81,13 +95,13 @@ const DefaultHeader = () => {
                 className="absolute top-full  mt-2 right-0 bg-white border border-gray-300 rounded-md shadow-lg"
               >
                 <ul className="py-2 px-4">
-                  <li>
+                  {/* <li>
                     <Link
                       href={"https://marginpoint.pythonanywhere.com/admin/"}
                     >
                       Admin
                     </Link>
-                  </li>
+                  </li> */}
                   {/* <li>
                     <Link href={"/category"}>Categories</Link>
                   </li> */}
@@ -104,11 +118,11 @@ const DefaultHeader = () => {
           {/* Navbar */}
           <div className={`lg:flex pr-3 items-center hidden`}>
             <ul className="flex gap-5 text-xs">
-              <li>
+              {/* <li>
                 <Link href={"https://marginpoint.pythonanywhere.com/admin/"}>
                   Admin
                 </Link>
-              </li>
+              </li> */}
               {/* <li>
                 <Link href={"/category"}>Categories</Link>
               </li> */}
