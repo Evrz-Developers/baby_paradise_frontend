@@ -6,7 +6,7 @@ const WhatsAppButton = ({ product }) => {
     const adminPhoneNumber = '919995058761';
 
     // Prefill the message with product details, including a link to the product and additional info
-    let productLink = `https://babyparadiseshop.netlify.app/product/${product.id}`;
+    let productLink = `https://babyparadisestore.netlify.app/product/${product.id}`;
     // productLink = `https://192.168.1.4:3000/product/${product.id}`;
     const message = `Hello! I'm interested and want to know more about the product: "${product.name}". \n\nCode: ${product.item_code}\n\nSale Price: ${product.retail_price}\n\n${product.description}\n\n ${productLink}`;
 
