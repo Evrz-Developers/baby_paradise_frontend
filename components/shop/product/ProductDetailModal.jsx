@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { CustomimageLoader } from "@/components/common/CustomImageLoader";
+import WhatsAppButton from "@/components/common/WhatsappButton";
+
 const ProductDetailModal = ({ product }) => {
   const formatCurrency = (value) => {
     // Use the Intl.NumberFormat to format the currency with the rupee symbol
@@ -55,17 +57,11 @@ const ProductDetailModal = ({ product }) => {
         <div className="text-base text-gray-700">
           MRP: {formatCurrency(product.mrp)}
         </div>
-        <div className="text-base text-emerald-700 mt-2">
-          {`Retail Price: ${showRetailPrice ? formatCurrency(product?.retail_price) : 'N/A'}`}
-        </div>
-        <div onClick={toggleRetailPrice}>
-          ({showRetailPrice ? (
-            "Hide"
-          ) : (
-            "Show"
-          )})
+        <div className="text-base text-emerald-700 my-2">
+          Sale Price: {formatCurrency(product?.retail_price)}
         </div>
 
+        <WhatsAppButton product={product} />
       </div>
     </div >
   );
