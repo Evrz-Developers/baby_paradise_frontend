@@ -63,10 +63,10 @@ const DefaultHeader = () => {
   return (
     <header className="w-full px-4 py-4 shadow-md fixed top-0 bg-white z-10">
       <ContentWrapper>
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center">
           {/* Title */}
-          <Link href="/">Margin Point</Link>
-          <div onClick={handleTap} className="cursor-pointer text-center ml-36 xxs:mr-20 ">
+          <Link href="/" className="xxs:text-sm md:text-md">Baby Paradise</Link>
+          <div onClick={handleTap} className="cursor-pointer text-center md:ml-28 xxs:mr-20">
             ⠀⠀⠀⠀
           </div>
           {/* Hamburger Icon for Mobile */}
