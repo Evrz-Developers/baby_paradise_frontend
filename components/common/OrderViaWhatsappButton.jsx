@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WhatsAppButton = ({ product }) => {
+const OrderViaWhatsappButton = ({ product, className }) => {
     // Admin's WhatsApp number
     // const adminPhoneNumber = '918848824751';
     const adminPhoneNumber = '919995058761';
@@ -16,12 +16,12 @@ const WhatsAppButton = ({ product }) => {
     const whatsappLink = `https://wa.me/${adminPhoneNumber}?text=${encodedMessage}`;
 
     return (
-        <div className='flex justify-center'>
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '10px 20px', borderRadius: '20px', backgroundColor: '#25D366', color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>
-                Inquire via WhatsApp
+        <div className={`flex ${className}`}>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '10px 15px', borderRadius: '20px', backgroundColor: '#25D366', color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>
+                Order via WhatsApp
             </a>
         </div>
     );
 };
 
-export default WhatsAppButton;
+export default OrderViaWhatsappButton;
