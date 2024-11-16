@@ -1,6 +1,7 @@
 import PRODUCT_API from "@/utilities/shop/product.api";
 import React, { useEffect, useState } from "react";
 import ProductDetailModal from "@/components/shop/product/ProductDetailModal";
+import Loader from "@/components/common/Loader";
 
 const ProductDetails = ({ productId }) => {
   const [product, setProduct] = useState();
@@ -23,10 +24,7 @@ const ProductDetails = ({ productId }) => {
   return (
     <>
       {loading ? ( // Check loading state
-        <div className="loader-container">
-          {/* Add your loader component or animation here */}
-          Loading...
-        </div>
+        <Loader className="bg-opacity-30" />
       ) : product &&
         typeof product === "object" &&
         Object.keys(product).length > 0 ? (

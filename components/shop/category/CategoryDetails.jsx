@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import useCategoryStore from "@/store/categoryStore";
 import CategoryNavbar from "./CategoryNavbar";
 import ProductGrid from "../product/ProductGrid";
+import Loader from "@/components/common/Loader";
 
 const CategoryDetails = ({ categoryId }) => {
   const router = useRouter();
@@ -33,10 +34,7 @@ const CategoryDetails = ({ categoryId }) => {
   return (
     <>
       {isLoading ? ( // Check loading state
-        <div className="loader-container">
-          {/* Add your loader component or animation here */}
-          Loading...
-        </div>
+        <Loader className="bg-opacity-30" />
       ) : (
         <div className="h-full w-full xxs:mt-16 md:mt-14 fixed top-0">
           <CategoryNavbar categories={categories} />
@@ -54,7 +52,7 @@ const CategoryDetails = ({ categoryId }) => {
           ) : (
             <div className="flex justify-center items-center h-full pb-60">
               <h2 className="text-xl font-semibold text-gray-800">
-                 No Products to Show!
+                No Products to Show!
               </h2>
             </div>
           )}

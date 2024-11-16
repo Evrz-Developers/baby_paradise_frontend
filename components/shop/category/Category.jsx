@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import CATEGORY_API from "../../../utilities/shop/category.api";
 import { useRouter } from "next/router";
 import CategoryNavbar from "./CategoryNavbar";
+import Loader from "@/components/common/Loader";
 
 const Category = () => {
   const [categories, setCategories] = useState([]);
@@ -24,7 +25,7 @@ const Category = () => {
       } catch (error) {
         console.error("Error fetching categories:", error);
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
     fetchData();
@@ -33,14 +34,11 @@ const Category = () => {
   return (
     <>
       {loading ? ( // Check loading state
-        <div className="loader-container">
-          {/* Add your loader component or animation here */}
-          Loading...
-        </div>
+        <Loader className="bg-opacity-30" />
       ) : categories && Array.isArray(categories) && categories.length > 0 ? (
         // <div className="w-[90%] lg:w-[40%] md:w-[60%] mt-16">
         <div className="w-full xxs:mt-14 md:mt-12">
-           <CategoryNavbar categories={categories} />
+          <CategoryNavbar categories={categories} />
           {/* <List
             items={categories}
             handleListItemClick={handleClick}

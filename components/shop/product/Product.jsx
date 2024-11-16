@@ -3,6 +3,7 @@ import PRODUCT_API from "@/utilities/shop/product.api";
 import List from "../../common/List";
 import { useRouter } from "next/router";
 import ProductGrid from "./ProductGrid";
+import Loader from "@/components/common/Loader";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -32,9 +33,7 @@ const Product = () => {
   return (
     <>
       {loading ? (
-        <div className="loader-container">
-          Loading...
-        </div>
+       <Loader className="bg-opacity-30" />
       ) : (
         <div className="px-4 overflow-y-auto overscroll-y-none">
           <ProductGrid

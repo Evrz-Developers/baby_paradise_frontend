@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Product from "../product/Product";
 import CategoryNavbar from "../category/CategoryNavbar";
 import useCategoryStore from "@/store/categoryStore";
+import Loader from "@/components/common/Loader";
 
 const Dashboard = () => {
   const { categories, setCategories, setLoading, isLoading } = useCategoryStore();
@@ -32,9 +33,7 @@ const Dashboard = () => {
   return (
     <>
       {isLoading ? (
-        <div className="loader-container">
-          Loading...
-        </div>
+        <Loader className="bg-opacity-30" />
       ) : categories && Array.isArray(categories) && categories.length > 0 ? (
         <>
           <div className="h-full w-full xxs:mt-16 md:mt-14 fixed top-0">
