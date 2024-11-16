@@ -5,13 +5,11 @@ import List from "../../common/List";
 import { useRouter } from "next/router";
 import Product from "../product/Product";
 import CategoryNavbar from "../category/CategoryNavbar";
+import useCategoryStore from "@/store/categoryStore";
 
 const Dashboard = () => {
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true); // Added loading state
-
+  const { categories, setCategories, setLoading, isLoading } = useCategoryStore();
   const router = useRouter();
-
   const handleClick = (categoryId) => {
     router.push(`/category/${categoryId}`);
   };
@@ -21,7 +19,7 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const response = await CATEGORY_API.getAllCategories();
-        setCategories(response?.data);
+        setCategories(response?.data); //set categories in zustand store
       } catch (error) {
         console.error("Error fetching categories:", error);
       } finally {
@@ -33,7 +31,7 @@ const Dashboard = () => {
 
   return (
     <>
-      {loading ? (
+      {isLoading ? (
         <div className="loader-container">
           Loading...
         </div>
@@ -48,7 +46,7 @@ const Dashboard = () => {
         </>
       ) : (
         <div>
-          <h2 className="title flex justify-center text-heading-4 pb-2">
+          <h2 className="title flex justify-center text-heading-4">
             Nothing to show!
           </h2>
         </div>

@@ -1,12 +1,15 @@
 import CATEGORY_API from "@/utilities/shop/category.api";
 import React, { useEffect, useState } from "react";
-import List from "@/components/common/List";
 import { useRouter } from "next/router";
+import useCategoryStore from "@/store/categoryStore";
+import CategoryNavbar from "./CategoryNavbar";
+import ProductGrid from "../product/ProductGrid";
 
 const CategoryDetails = ({ categoryId }) => {
-  const [products, setProducts] = useState();
-  const [loading, setLoading] = useState(true); // Added loading state
   const router = useRouter();
+  const { categories } = useCategoryStore();
+  const [products, setProducts] = useState();
+  const [isLoading, setLoading] = useState(true);
 
   const handleClick = (id) => {
     router.push(`/product/${id}`);
@@ -26,27 +29,35 @@ const CategoryDetails = ({ categoryId }) => {
     };
     fetchData(categoryId);
   }, [categoryId]);
+
   return (
     <>
-      {loading ? ( // Check loading state
+      {isLoading ? ( // Check loading state
         <div className="loader-container">
           {/* Add your loader component or animation here */}
           Loading...
         </div>
-      ) : products && Array.isArray(products) && products.length > 0 ? (
-        <div className="w-[90%] lg:w-[40%] md:w-[60%] mt-16">
-          <List
-            items={products}
-            handleListItemClick={handleClick}
-            clickable={true}
-            showImage={true}
-          />
-        </div>
       ) : (
-        <div>
-          <h2 className="title flex justify-center text-heading-4 pb-2">
-            No Products to Show!
-          </h2>
+        <div className="h-full w-full xxs:mt-16 md:mt-14 fixed top-0">
+          <CategoryNavbar categories={categories} />
+          {products && Array.isArray(products) && products.length > 0 ? (
+            <div className={"w-full h-full pt-4"}>
+              <div className="px-4 overflow-y-auto overscroll-y-none">
+                <ProductGrid
+                  items={products}
+                  handleListItemClick={handleClick}
+                  clickable={true}
+                  showImage={true}
+                  className={""} />
+              </div>
+            </div>
+          ) : (
+            <div className="flex justify-center items-center h-full">
+              <h2 className="text-2xl font-bold text-gray-800">
+                 No Products to Show!
+              </h2>
+            </div>
+          )}
         </div>
       )}
     </>

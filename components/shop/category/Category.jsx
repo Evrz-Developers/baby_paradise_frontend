@@ -1,7 +1,6 @@
 // Import necessary modules
 import React, { useState, useEffect } from "react";
 import CATEGORY_API from "../../../utilities/shop/category.api";
-import List from "../../common/List";
 import { useRouter } from "next/router";
 import CategoryNavbar from "./CategoryNavbar";
 
@@ -11,21 +10,21 @@ const Category = () => {
 
   const router = useRouter();
 
-  const handleClick = (categoryId) => {
-    router.push(`/category/${categoryId}`);
-  };
+  // const handleClick = (categoryId) => {
+  //   router.push(`/category/${categoryId}`);
+  // };
 
   // Fetch categories
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await CATEGORY_API.getAllCategories();
-        setCategories(response?.data);
+        setCategories(response?.data); //set categories in zustand store
         console.log('response?.data', response?.data)
       } catch (error) {
         console.error("Error fetching categories:", error);
       } finally {
-        setLoading(false); // Set loading to false once data is fetched (success or error)
+        setLoading(false); 
       }
     };
     fetchData();
