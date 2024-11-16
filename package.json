@@ -9,13 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.4",
+    "framer-motion": "^11.11.17",
+    "lucide-react": "^0.460.0",
     "next": "13.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.42.1",
     "react-icon": "^1.0.0",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7",
     "zustand": "^5.0.1"
   },
   "devDependencies": {

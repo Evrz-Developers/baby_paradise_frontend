@@ -7,6 +7,7 @@ import Product from "../product/Product";
 import CategoryNavbar from "../category/CategoryNavbar";
 import useCategoryStore from "@/store/categoryStore";
 import Loader from "@/components/common/Loader";
+import { CustomDock } from "@/components/common/CustomDock";
 
 const Dashboard = () => {
   const { categories, setCategories, setLoading, isLoading } = useCategoryStore();
@@ -50,6 +51,7 @@ const Dashboard = () => {
           </h2>
         </div>
       )}
+      <CustomDock />
     </>
   );
 };
