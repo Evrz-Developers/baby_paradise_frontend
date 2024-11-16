@@ -52,8 +52,8 @@ const CategoryDetails = ({ categoryId }) => {
               </div>
             </div>
           ) : (
-            <div className="flex justify-center items-center h-full">
-              <h2 className="text-2xl font-bold text-gray-800">
+            <div className="flex justify-center items-center h-full pb-60">
+              <h2 className="text-xl font-semibold text-gray-800">
                  No Products to Show!
               </h2>
             </div>

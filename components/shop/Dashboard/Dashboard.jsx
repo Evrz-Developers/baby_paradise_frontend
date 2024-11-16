@@ -45,9 +45,9 @@ const Dashboard = () => {
           </div>
         </>
       ) : (
-        <div>
-          <h2 className="title flex justify-center text-heading-4">
-            Nothing to show!
+        <div className="flex justify-center items-center h-full pb-60">
+          <h2 className="text-xl font-semibold text-gray-800">
+            No Products to Show!
           </h2>
         </div>
       )}
