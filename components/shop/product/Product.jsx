@@ -36,7 +36,7 @@ const Product = () => {
           Loading...
         </div>
       ) : (
-        <div >
+        <div className="px-4 overflow-y-auto overscroll-y-none">
           <ProductGrid
             items={products}
             handleListItemClick={handleClick}

@@ -41,7 +41,7 @@ const Dashboard = () => {
         <>
           <div className="h-full w-full xxs:mt-16 md:mt-14 fixed top-0">
             <CategoryNavbar categories={categories} />
-            <div className={"w-full h-full "}>
+            <div className={"w-full h-full pt-4"}>
               <Product />
             </div>
           </div>
