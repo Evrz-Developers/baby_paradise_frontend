@@ -33,7 +33,10 @@ const Product = () => {
   return (
     <>
       {loading ? (
-       <Loader className="bg-opacity-30" />
+        // TODO: Show loader if needed
+        <div className="flex justify-center items-center h-full pb-60">
+          {/* <Loader className="bg-opacity-30" /> */}
+        </div>
       ) : (
         <div className="px-4 overflow-y-auto overscroll-y-none">
           <ProductGrid
@@ -42,14 +45,6 @@ const Product = () => {
             clickable={true}
             showImage={true}
             className={""} />
-          {/* <List
-            handleListItemClick={handleClick}
-            clickable={true}
-            items={products}
-            showImage={true}
-            title={"PRODUCTS"}
-            className={""}
-          /> */}
         </div>
       )}
     </>
